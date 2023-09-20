@@ -10,7 +10,7 @@
 
 3. Write a query to determine the structure of the table 'DEPARTMENTS'
 
- select * from departments
+  exec sp_help departments
 
 4. Write a query to determine the unique Job IDs from the EMPLOYEES table.
 
