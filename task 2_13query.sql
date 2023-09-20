@@ -27,7 +27,7 @@
 	group by JOB_ID
 
 7. The HR department needs to find the names and hire dates of all employees who were hired 
-   before their managers, along with their managers’ names and hire dates.
+   before their managers, along with their managersâ€™ names and hire dates.
 
     select e1.EMPLOYEE_ID,e1.FIRST_NAME,e1.LAST_NAME,e1.HIRE_DATE,e2.MANAGER_ID,e2.FIRST_NAME,e2.LAST_NAME,e2.HIRE_DATE from employees e1
 	inner join employees e2 on e1.EMPLOYEE_ID=e2.MANAGER_ID 
@@ -43,8 +43,8 @@
    Round your results to the nearest whole number.
 
 
-   select min(salary) as minimum,max(salary) as maximum,sum(salary) as sumAll , avg(salary) as average,employee_id from employees 
-	group by employee_id
+   select round(min(salary),0) as minimum,round(max(salary),0) as maximum,round(sum(salary),0) as sumAll , round(avg(salary),0) as average from employees 
+
 
 10. Create a report that displays list of employees whose salary is more than the salary of 
     any employee from department 60.
