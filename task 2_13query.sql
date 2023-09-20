@@ -36,8 +36,9 @@
 8. Create a report for the HR department that displays employee last names, department numbers, and all the employees 
    who work in the same department as a given employee.
 
-   select employees.last_name,employees.DEPARTMENT_ID ,departments.department_name from employees inner join departments on employees.DEPARTMENT_ID=departments.DEPARTMENT_ID order by employees.DEPARTMENT_ID
-
+  ans 1:- select employees.last_name,employees.DEPARTMENT_ID ,departments.department_name from employees inner join departments on employees.DEPARTMENT_ID=departments.DEPARTMENT_ID order by employees.DEPARTMENT_ID
+  ans 2:- select e2.* from employees e1 inner join employees e2 on e1.EMPLOYEE_ID=e2.manager_ID where e1.LAST_NAME='king'
+	    
 9. Find the highest, lowest, sum, and average salary of all employees. 
    Label the columns Maximum, Minimum, Sum, and Average, respectively. 
    Round your results to the nearest whole number.
