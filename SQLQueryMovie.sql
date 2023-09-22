@@ -4,7 +4,7 @@
      
 	 SELECT mov_title as title, mov_year as year FROM movie;
 	
-2. write a SQL query to find when the movie ‘American Beauty’ released. 
+2. write a SQL query to find when the movie â€˜American Beautyâ€™ released. 
    Return movie release year.
 
    select mov_year from movie where mov_title='American Beauty'
@@ -85,7 +85,7 @@ act_id IN(SELECT act_id  FROM movie_cast WHERE mov_id IN ( SELECT mov_id  FROM m
   where a.mov_id=b.mov_id and b.dir_id=c.dir_id and d.mov_id=a.mov_id and d.act_id=e.act_id and  a.mov_id in (select mov_id from rating where rev_id in (select rev_id from reviewer where rev_name = ''))
 
 
-5. write a SQL query to find those movies directed by the director whose first name is ‘Woddy’ and last name is ‘Allen’. 
+5. write a SQL query to find those movies directed by the director whose first name is â€˜Woddyâ€™ and last name is â€˜Allenâ€™. 
    Return movie title.
 
    select mov_title from movie a where mov_id in 
@@ -113,8 +113,8 @@ act_id IN(SELECT act_id  FROM movie_cast WHERE mov_id IN ( SELECT mov_id  FROM m
    order by b.rev_name,a.mov_title,rev_stars
 
 10. write a SQL query to find those reviewers who rated more than one movie. 
-    Group the result set on reviewer’s name, movie title. 
-    Return reviewer’s name, movie title.
+    Group the result set on reviewerâ€™s name, movie title. 
+    Return reviewerâ€™s name, movie title.
 
 ans 1:-
 
@@ -127,14 +127,14 @@ ans 2 :-
    select  distinct movie.mov_title , reviewer.rev_name
 from reviewer, movie, rating, rating r
 where rating.mov_id=movie.mov_id 
-  and reviewer.rev_id=rating.rev_ID 
-    and rating.rev_id = r.rev_id 
+Â  and reviewer.rev_id=rating.rev_ID 
+Â  Â  and rating.rev_id = r.rev_id 
    and movie.mov_title in (
     select  mov_title 
    from reviewer, movie, rating, rating r
    where rating.mov_id=movie.mov_id 
-   and reviewer.rev_id=rating.rev_ID 
-   and rating.rev_id = r.rev_id 
+Â   and reviewer.rev_id=rating.rev_ID 
+Â  Â and rating.rev_id = r.rev_id 
    group by rev_name,mov_title having count(*) > 1
 )
 
@@ -198,7 +198,7 @@ where rating.mov_id=movie.mov_id
 	inner join director c on b.dir_id=c.dir_id
 	where a.mov_title='Eyes Wide Shut'
 
-4. write a SQL query to find who directed a movie that casted a role as ‘Sean Maguire’. Return director first name, last name and movie title.
+4. write a SQL query to find who directed a movie that casted a role as â€˜Sean Maguireâ€™. Return director first name, last name and movie title.
    
    select e.dir_fname,e.dir_lname,a.mov_title from movie a 
    inner join movie_cast b on a.mov_id=b.mov_id 
@@ -307,9 +307,5 @@ where rating.mov_id=movie.mov_id
 	inner join actor c on b.act_id=c.act_id 
 	where b.act_id in (select b.act_id from movie_cast b group by b.act_id having count(b.act_id)>1)
 
-	select b.act_id,a.mov_title from movie a
-	inner join movie_cast b on a.mov_id=b.mov_id
-	inner join actor c on b.act_id=c.act_id 
-	group by b.act_id,a.mov_title
 	
 
