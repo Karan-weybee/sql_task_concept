@@ -108,8 +108,9 @@ act_id IN(SELECT act_id  FROM movie_cast WHERE mov_id IN ( SELECT mov_id  FROM m
    ascending order by reviewer name, movie title, review Stars.
    Return reviewer name, movie title, review Stars.
 
-   select b.rev_name,a.mov_title,c.rev_stars from movie a,reviewer b , rating c 
+      select b.rev_name,a.mov_title,c.rev_stars from movie a,reviewer b , rating c 
    where a.mov_id=c.mov_id and b.rev_id=c.rev_id and b.rev_name not in (select rev_name from reviewer where rev_name='')
+   AND C.rev_stars IS NOT NULL
    order by b.rev_name,a.mov_title,rev_stars
 
 10. write a SQL query to find those reviewers who rated more than one movie. 
