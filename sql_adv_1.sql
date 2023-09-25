@@ -55,6 +55,8 @@ SELECT CAST(25.65 AS int);
 SELECT CAST(age AS int) from students;
 SELECT PARSE('05/12/2019' AS DATETIME) AS [Output] ;
 SELECT CEILING(25.75) AS CeilValue;
+SELECT CONVERT(nvarchar(30), GETDATE(), 100);
+SELECT CAST( GETDATE() AS nvarchar(30));
 SELECT floor(25.75) AS CeilValue;
 SELECT POWER(age, 2) from students;
 SELECT sqrt(marks) from students;
