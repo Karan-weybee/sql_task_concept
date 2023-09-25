@@ -40,3 +40,13 @@ NTILE(3) OVER (
 ORDER BY Salary ASC
 ) AS NTILE_NUM 
 FROM employees;
+
+
+WITH EMP_DATA AS (
+SELECT *, 
+ROW_NUMBER() OVER (
+ORDER BY Salary ASC
+) AS RowNumber 
+FROM employees
+)
+SELECT * FROM EMP_data WHERE RowNumber between 2 and 4 ;
