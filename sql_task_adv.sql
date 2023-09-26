@@ -42,10 +42,8 @@ select * from dbo.emp_work_dep('Executive')
 --Create a function that returns the data of employee records based on the page number passed. 
 --Parameters required are PageNumber, PageSize (Hint: use Row_Number, Partition by)
 
-
 CREATE function EMP_REC(
-@PAGENUMBER INT,
-@PAGESIZE int
+@PAGENUMBER INT
 )
 returns table
 as 
@@ -57,10 +55,10 @@ ORDER BY FIRST_NAME
 ) AS RowNumber 
 FROM employees
 )
-SELECT * FROM EMP_data WHERE RowNumber between @PAGESIZE*@PAGENUMBER and @PAGESIZE*@PAGENUMBER + @PAGESIZE);
+SELECT * FROM EMP_data WHERE RowNumber between (@PAGENUMBER-1)*10+1 and (@PAGENUMBER-1)*10 + 10);
 
 drop function EMP_REC
-select * from EMP_REC(2,20)
+select * from EMP_REC(3)
 
 --‘Select EmpId, FirstName, LastName, PhoneNumber, Email from Employees’ 
 --check the execution plan for the given query and save it. Now, optimize the query and then check the execution plan and save it.
