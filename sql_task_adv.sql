@@ -57,7 +57,7 @@ ORDER BY FIRST_NAME
 ) AS RowNumber 
 FROM employees
 )
-SELECT * FROM EMP_data WHERE RowNumber between (@PAGENUMBER-1)*10+1 and @PAGESIZE*@PAGENUMBER );
+SELECT * FROM EMP_data WHERE RowNumber between @PAGESIZE*@PAGENUMBER and @PAGESIZE*@PAGENUMBER + @PAGESIZE);
 
 drop function EMP_REC
 select * from EMP_REC(2,20)
